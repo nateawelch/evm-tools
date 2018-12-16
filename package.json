@@ -1,0 +1,23 @@
+{
+  "name": "evm-tools",
+  "version": "0.0.1",
+  "description": "Tools for writing programs in EVM assembly",
+  "main": "index.js",
+  "dependencies": {
+    "@optionality.io/evm-asm": "^0.1.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flygoing/emv-tools.git"
+  },
+  "author": "Nate Welch",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/flygoing/emv-tools/issues"
+  },
+  "homepage": "https://github.com/flygoing/emv-tools#readme"
+}
