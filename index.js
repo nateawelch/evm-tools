@@ -1,7 +1,6 @@
 const evmAsm = require('@optionality-io/evm-asm')
 
 class Program {
-  var ops = []
 
   constructor(){
     this.ops=[]
