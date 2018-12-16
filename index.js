@@ -4,68 +4,69 @@ class Program {
   var ops = []
 
   constructor(){
+    this.ops=[]
     for(var count = 1; count<=32; count++){
       this["push"+count] = function(data){
-	ops.push(evmAsm["push"+count](data))
+	this.ops.push(evmAsm["push"+count](data))
       }
     }
     for(var count = 1; count<=16; count++){
       this["dup"+count] = function(){
-        ops.push(evmAsm["dup"+count]())
+        this.ops.push(evmAsm["dup"+count]())
       }
       this["swap"+count] = function(){
-        ops.push(evmAsm["swap"+count]())
+        this.ops.push(evmAsm["swap"+count]())
       }
     }
     //TODO add log ops
   }
 
   function label(label){
-    ops.push(evmAsm.label(label))
+    this.ops.push(evmAsm.label(label))
   }
 
   function caller(){
-    ops.push(evmAsm.caller())
+    this.ops.push(evmAsm.caller())
   }
 
   function push(number, data){
-    ops.push(evmAsm["push"+number](data))
+    this.ops.push(evmAsm["push"+number](data))
   }
 
   function eq(){
-    ops.push(evmAsm.eq())
+    this.ops.push(evmAsm.eq())
   }
 
   function jumpi(){
-    ops.push(evmAsm.jumpi())
+    this.ops.push(evmAsm.jumpi())
   }
 
   function returndatasize(){
-    ops.push(evmAsm.returndatasize())
+    this.ops.push(evmAsm.returndatasize())
   }
 
   function revert(){
-    ops.push(evmAsm.revert())
+    this.ops.push(evmAsm.revert())
   }
 
   function jumpdest(dest){
-    ops.push(evmAsm.jumpdest(dest))
+    this.ops.push(evmAsm.jumpdest(dest))
   }
 
   function calldataload(){
-    ops.push(evmAsm.calldataload())
+    this.ops.push(evmAsm.calldataload())
   }
 
   function and(){
-    ops.push(evmAsm.and())
+    this.ops.push(evmAsm.and())
   }
 
   function stop(){
-    ops.push(evmAsm.stop())
+    this.ops.push(evmAsm.stop())
   }
 
   function compile(){
-    return evm.program(evmAsm).generate()
+    return evm.program(this.ops).generate()
   }
 }
 
