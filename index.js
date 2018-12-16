@@ -64,13 +64,12 @@ class Program {
     ops.push(evmAsm.stop())
   }
 
-  function generate(){
+  function compile(){
     return evm.program(evmAsm).generate()
+  }
 }
 
 
 module.exports = {
-  Program: function(){
-    return new Program();
-  }
+  Program: Program
 }
