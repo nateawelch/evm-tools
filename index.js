@@ -63,6 +63,10 @@ class Program {
     this.ops.push(evmAsm.stop())
   }
 
+  mstore() {
+    this.ops.push(evmAsm.mstore())
+  }
+
   compile() {
     return evm.program(this.ops).generate()
   }
