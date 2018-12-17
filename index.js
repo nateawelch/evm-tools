@@ -3,18 +3,25 @@ const evmAsm = require('@optionality.io/evm-asm')
 class Program {
   constructor() {
     this.ops = []
-    for (var count = 1; count <= 32; count++) {
-      this["push" + count] = function(data) {
-        this.ops.push(evmAsm["push" + count](data))
-      }
+    for (var a = 1; a <= 32; a++) {
+      console.log(evmAsm["push"+a])
+      this["push" + a] = function(input) {
+        return function(data){
+          this.ops.push(evmAsm["push" + input](data))
+        }
+      }(a)
     }
-    for (var count = 1; count <= 16; count++) {
-      this["dup" + count] = function() {
-        this.ops.push(evmAsm["dup" + count]())
-      }
-      this["swap" + count] = function() {
-        this.ops.push(evmAsm["swap" + count]())
-      }
+    for (var b = 1; b <= 16; b++) {
+      this["dup" + b] = function(input) {
+        return function(){
+          this.ops.push(evmAsm["dup" + input]())
+        }
+      }(b)
+      this["swap" + b] = function(input) {
+        return function(){
+          this.ops.push(evmAsm["swap" + input]())
+        }
+      }(b)
     }
     //TODO add log ops
   }
@@ -25,10 +32,6 @@ class Program {
 
   caller() {
     this.ops.push(evmAsm.caller())
-  }
-
-  push(number, data) {
-    this.ops.push(evmAsm["push" + number](data))
   }
 
   eq() {
@@ -67,8 +70,21 @@ class Program {
     this.ops.push(evmAsm.mstore())
   }
 
+  codecopy() {
+    this.ops.push(evmAsm.codecopy())
+  }
+
+  return() {
+    this.ops.push(evmAsm.return())
+  }
+
+  selfdestruct() {
+    this.ops.push(evmAsm.selfdestruct())
+  }
+
   compile() {
-    return evm.program(this.ops).generate()
+    console.log(this.ops)
+    return evmAsm.program(this.ops).generate()
   }
 }
 
