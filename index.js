@@ -81,6 +81,9 @@ class Program {
     this.ops.push(evmAsm.selfdestruct())
   }
 
+  div() {
+    this.ops.push(evmAsm.div())
+  }
   compile() {
     console.log(this.ops)
     return evmAsm.program(this.ops).generate()
