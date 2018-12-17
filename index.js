@@ -4,7 +4,6 @@ class Program {
   constructor() {
     this.ops = []
     for (var a = 1; a <= 32; a++) {
-      console.log(evmAsm["push"+a])
       this["push" + a] = function(input) {
         return function(data){
           this.ops.push(evmAsm["push" + input](data))
