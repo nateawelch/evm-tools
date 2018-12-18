@@ -96,7 +96,6 @@ class Program {
     }
 
     compile() {
-        console.log(this.ops)
         return evmAsm.program(this.ops).generate()
     }
 }
