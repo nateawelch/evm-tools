@@ -54,7 +54,7 @@ class Program {
         this.ops.push(evmAsm.codecopy())
     }
 
-    return = () => {
+    return() {
         this.ops.push(evmAsm.return())
     }
 
