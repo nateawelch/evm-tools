@@ -38,8 +38,20 @@ class Program {
         this.ops.push(evmAsm.calldataload())
     }
 
+    calldatasize() {
+        this.ops.push(evmAsm.calldatasize())
+    }
+
+    calldatacopy() {
+        this.ops.push(evmAsm.calldatacopy())
+    }
+
     and() {
         this.ops.push(evmAsm.and())
+    }
+
+    not() {
+        this.ops.push(evmAsm.not())
     }
 
     stop() {
@@ -64,6 +76,10 @@ class Program {
 
     div() {
         this.ops.push(evmAsm.div())
+    }
+
+    sender() {
+        this.ops.push(evmAsm.sender())
     }
 
     push(number, data) {
@@ -93,6 +109,18 @@ class Program {
 
     call() {
         this.ops.push(evmAsm.call())
+    }
+
+    shiftleft() {
+        this.ops.push(evmAsm.shiftleft())
+    }
+
+    shiftright() {
+        this.ops.push(evmAsm.shiftright())
+    }
+
+    sha3() {
+        this.ops.push(evmAsm.sha3())
     }
 
     compile() {
