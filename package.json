@@ -1,23 +1,22 @@
 {
   "name": "evmtools",
-  "version": "0.0.13",
+  "version": "0.1.1",
   "description": "Tools for writing programs in EVM assembly",
-  "main": "index.js",
-  "dependencies": {
-    "@optionality.io/evm-asm": "^0.1.2"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "main": "src/index.ts",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/flygoing/emv-tools.git"
+    "url": "git+https://github.com/nateawelch/emv-tools.git"
+  },
+  "scripts": {
+    "build": "node_modules/.bin/tsc"
   },
   "author": "Nate Welch",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/flygoing/emv-tools/issues"
+    "url": "https://github.com/nateawelch/emv-tools/issues"
   },
-  "homepage": "https://github.com/flygoing/emv-tools#readme"
+  "homepage": "https://github.com/nateawelch/emv-tools#readme",
+  "dependencies": {
+    "typescript": "^4.8.3"
+  }
 }
