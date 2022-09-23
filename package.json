@@ -1,8 +1,10 @@
 {
   "name": "evmtools",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Tools for writing programs in EVM assembly",
-  "main": "src/index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.js",
+  "files": "dist",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nateawelch/emv-tools.git"
