@@ -31,6 +31,10 @@ export class Program {
         this.ops.push(evmAsm.returndatacopy())
     }
 
+    public pop(): void {
+        this.ops.push(evmAsm.pop())
+    }
+
     public sha3():void {
         this.ops.push(evmAsm.sha3())
     }

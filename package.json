@@ -1,6 +1,6 @@
 {
   "name": "evmtools",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Tools for writing programs in EVM assembly",
   "main": "dist/index.js",
   "types": "dist/index.d.js",
